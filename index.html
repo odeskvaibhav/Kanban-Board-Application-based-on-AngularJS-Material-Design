@@ -49,7 +49,7 @@
 	        					<div class="description">
 		        					<p>{{task.description}}</p>
 		        				</div><br><br>
-	        					<select ng-click="$event.stopPropagation(); task.showMore = false" ng-cancel-drag id="stt" ng-model="task.stage_id" ng-options="stage.id as stage.name for stage in stages">
+	        					<select ng-click="$event.stopPropagation()" ng-cancel-drag id="stt" ng-model="task.stage_id" ng-options="stage.id as stage.name for stage in stages">
 	        				</select>
 	        				<br><br>
 	        				<button ng-click="deleteTask(task)">Delete</button>
