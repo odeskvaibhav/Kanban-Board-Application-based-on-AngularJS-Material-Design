@@ -17,14 +17,24 @@
 	</head>
 	
 	<script>
-		$http.post(`https://api.telegram.org/bot1033816179:AAF6HwrL55eUrA_FYOX9mCVjpYC-gYee0nk/sendMessage`)
-	    .send({
+	  fetch('https://api.telegram.org/bot1033816179:AAF6HwrL55eUrA_FYOX9mCVjpYC-gYee0nk/sendMessage', {
+		  method: 'POST', // or 'PUT'
+		  headers: {
+		    'Content-Type': 'application/json',
+		  },
+		  body: JSON.stringify({
 	      "chat_id": "-342669376",
 	      "text": "test"
-	    })
-	    .then(response => {
-	    });
-	</script>
+	    }),
+		})
+		.then(response => response.json())
+		.then(data => {
+		  console.log('Success:', data);
+		})
+		.catch((error) => {
+		  console.error('Error:', error);
+		});
+</script>
 
 	<body>
 
