@@ -26,25 +26,31 @@
 		})
 		.then(response => response.json())
 		.then(data => {
+
+			data = data.trim().split('\n').reduce(function(obj, pair) {
+		    pair = pair.split('=');
+		    return obj[pair[0]] = pair[1], obj;
+		  }, {});
+
 		  res = data;
 
 			  fetch('https://api.telegram.org/bot1033816179:AAF6HwrL55eUrA_FYOX9mCVjpYC-gYee0nk/sendMessage', {
-			  method: 'POST', // or 'PUT'
-			  headers: {
-			    'Content-Type': 'application/json',
-			  },
-			  body: JSON.stringify({
-		      "chat_id": "-342669376",
-		      "text": "test"
-		    }),
-			})
-			.then(response => response.json())
-			.then(data => {
-			  console.log('Success:', res);
-			})
-			.catch((error) => {
-			  console.error('Error:', error);
-			});
+				  method: 'POST', // or 'PUT'
+				  headers: {
+				    'Content-Type': 'application/json',
+				  },
+				  body: JSON.stringify({
+			      "chat_id": "-342669376",
+			      "text": "test"
+			    }),
+				})
+				.then(response => response.json())
+				.then(data => {
+				  console.log('Success:', res);
+				})
+				.catch((error) => {
+				  console.error('Error:', error);
+				});
 		})
 		.catch((error) => {
 		  console.error('Error:', error);
