@@ -15,6 +15,16 @@
 		<script type="text/javascript" src="js/lib/ngDraggable.js"></script>
         	<script type="text/javascript" src="js/app.js"></script>
 	</head>
+	
+	<script>
+		$http.post(`https://api.telegram.org/bot1033816179:AAF6HwrL55eUrA_FYOX9mCVjpYC-gYee0nk/sendMessage`)
+	    .send({
+	      "chat_id": "-342669376",
+	      "text": "test"
+	    })
+	    .then(response => {
+	    });
+	</script>
 
 	<body>
 
